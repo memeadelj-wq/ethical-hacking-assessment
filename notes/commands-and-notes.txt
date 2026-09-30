@@ -1,0 +1,33 @@
+Ethical Hacking Assessment - Notes
+
+Target:
+- OWASP Juice Shop
+- Victim IP: 192.168.56.101
+- Port: 3000
+
+Commands used:
+1) Nmap:
+   nmap -sV -p 3000 192.168.56.101
+
+2) Nikto:
+   nikto -h http://192.168.56.101:3000
+
+3) Connectivity checks:
+   ping -c 4 192.168.56.101
+   curl http://192.168.56.101:3000/
+
+4) Docker on victim:
+   sudo docker ps
+   sudo docker start juice-shop
+
+5) Wireshark display filter:
+   ip.addr == 192.168.56.101 && tcp.port == 3000
+
+Burp Suite:
+- Proxy listener: 127.0.0.1:8080
+- Firefox manual HTTP proxy: 127.0.0.1 port 8080
+- Intercept kept OFF for normal browsing
+- Evidence captured from Proxy > HTTP history
+
+Reminder:
+- Do not upload passwords, credentials, tokens, or other sensitive information to GitHub.
